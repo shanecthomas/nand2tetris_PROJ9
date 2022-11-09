@@ -17,6 +17,7 @@ class BMasher {
         var char key;
         var boolean exit;
         let exit = false;
+        let finish = false;
 
         while (~exit) {
         
@@ -40,6 +41,9 @@ class BMasher {
                 let key = 0;
             }
             
+            if (square.isFinished()) {
+                do square.congrats();
+            }
         }
             
         return;

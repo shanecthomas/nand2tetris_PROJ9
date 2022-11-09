@@ -18,11 +18,22 @@ class SquareGame {
     field BMasher square;
 
     constructor BMasher new() {
+        let instr = Array.new(3);
+        let instr[0] = "BUTTON MASHER!!!";
+        let instr[1] = "Practice your button mashing skills, and turn this tiny little square into a GIANT SQUARE!";
+        let instr[2] = "Press 'space' to increase size of square, 'n' to start over, 'q' to quit";
+        do Screen.clearScreen();
+        do Output.moveCursor(10, 30);
+        do Output.printString(instr[0]);
+        do Output.moveCursor(12, 30);
+        do Output.printString(instr[1]);
+        do Output.moveCursor(14, 30);
+        do Output.printString(instr[2]);
+        
         let square = Square.new(0, 0, 10);
         return this;
     }
 
-    /** Deallocates the object's memory. */
     method void dispose() {
         do square.dispose();
         do Memory.deAlloc(this);
@@ -39,6 +50,7 @@ class SquareGame {
             while (key = 0) {
                 let key = Keyboard.keyPressed();
             }
+            
             // 'q' key
             if (key = 81) {
                 let exit = true;
@@ -51,10 +63,8 @@ class SquareGame {
             if (key = 32) {
                 do square.sizeUp();
 
-            // waits for the key to be released.
-            while (~(key = 0)) {
-                let key = Keyboard.keyPressed();
-                do moveSquare();
+            if (~(key = 0)) {
+                let key = 0;
             }
         }
             

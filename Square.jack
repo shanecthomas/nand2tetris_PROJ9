@@ -41,15 +41,15 @@ class Square {
 
     method void menu() {
         let instr[0] = "BUTTON MASHER!!!";
-        let instr[1] = "Practice your button mashing skills, and turn this tiny little square into a GIANT SQUARE!";
+        let instr[1] = "Button mash until the square fills up the screen!";
         let instr[2] = "Press 'space' to increase size of square, 'n' to start over, 'q' to quit";
         let instr[3] = "CONGRATS, BUTTON MASHER! Press 'n' to start over, 'q' to quit";
         do Screen.clearScreen();
         do Output.moveCursor(10, 30);
         do Output.printString(instr[0]);
-        do Output.moveCursor(12, 30);
+        do Output.moveCursor(12, 1);
         do Output.printString(instr[1]);
-        do Output.moveCursor(14, 30);
+        do Output.moveCursor(14, 1);
         do Output.printString(instr[2]);
         
         return;
@@ -57,7 +57,7 @@ class Square {
 
     method void congrats() {
         do Screen.clearScreen();
-        do Output.moveCursor(50, 50);
+        do Output.moveCursor(10, 1);
         do Output.printString(instr[3]);
         
         return;

@@ -1,8 +1,10 @@
 class Square {
     field int x, y, size;
     field boolean done;
+    field Array instr;
 
     constructor Square new(int startX, int startY, int sqSize) {
+        let instr = Array.new(4);
         do menu();
         let x = startX;
         let y = startY;
@@ -34,14 +36,14 @@ class Square {
 
         do draw();
 
-        return this;
+        return;
     }
 
     method void menu() {
-        let instr = Array.new(3);
         let instr[0] = "BUTTON MASHER!!!";
         let instr[1] = "Practice your button mashing skills, and turn this tiny little square into a GIANT SQUARE!";
         let instr[2] = "Press 'space' to increase size of square, 'n' to start over, 'q' to quit";
+        let instr[3] = "CONGRATS, BUTTON MASHER! "Press 'n' to start over, 'q' to quit";
         do Screen.clearScreen();
         do Output.moveCursor(10, 30);
         do Output.printString(instr[0]);
@@ -55,8 +57,10 @@ class Square {
 
     method void congrats() {
         do Screen.clearScreen();
-        do Output.moveCursor(50,50);
-        do Output.printString("CONGRATS, BUTTON MASHER! "Press 'n' to start over, 'q' to quit");
+        do Output.moveCursor(50, 50);
+        do Output.printString(instr[3]);
+        
+        return;
     }
 
     method void sizeUp() {

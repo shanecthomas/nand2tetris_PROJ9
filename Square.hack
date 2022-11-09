@@ -53,6 +53,12 @@ class Square {
         return;
     }
 
+    method void congrats() {
+        do Screen.clearScreen();
+        do Output.moveCursor(50,50);
+        do Output.printString("CONGRATS, BUTTON MASHER! "Press 'n' to start over, 'q' to quit");
+    }
+
     method void sizeUp() {
         if (((y + size) < 254) & ((x + size) < 510)) {
             do erase();

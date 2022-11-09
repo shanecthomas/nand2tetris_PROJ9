@@ -1,35 +1,8 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/09/Square/SquareGame.jack
+class BMasher {
 
-/**
- * Implements the Square Dance game.
- * In this game you can move a black square around the screen and
- * change its size during the movement.
- * In the beginning, the square is located at the top-left corner
- * of the screen. The arrow keys are used to move the square.
- * The 'z' & 'x' keys are used to decrement and increment the size.
- * The 'q' key is used to quit the game.
- */
- 
-class SquareGame {
-
-    field BMasher square;
+    field Square square;
 
     constructor BMasher new() {
-        let instr = Array.new(3);
-        let instr[0] = "BUTTON MASHER!!!";
-        let instr[1] = "Practice your button mashing skills, and turn this tiny little square into a GIANT SQUARE!";
-        let instr[2] = "Press 'space' to increase size of square, 'n' to start over, 'q' to quit";
-        do Screen.clearScreen();
-        do Output.moveCursor(10, 30);
-        do Output.printString(instr[0]);
-        do Output.moveCursor(12, 30);
-        do Output.printString(instr[1]);
-        do Output.moveCursor(14, 30);
-        do Output.printString(instr[2]);
-        
         let square = Square.new(0, 0, 10);
         return this;
     }
@@ -66,6 +39,7 @@ class SquareGame {
             if (~(key = 0)) {
                 let key = 0;
             }
+            
         }
             
         return;

@@ -36,6 +36,7 @@ class BMasher {
             // 'space' key
             if (key = 32) {
                 do square.sizeUp();
+            }
 
             if (~(key = 0)) {
                 let key = 0;

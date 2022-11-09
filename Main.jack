@@ -1,10 +1,5 @@
-/**
- * The Main class initializes a new Button Masher game and starts it.
- */
-
 class Main {
 
-    /** Initializes a new game and starts it. */    
     function void main() {
         var BMasher game;
 

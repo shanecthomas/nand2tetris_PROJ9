@@ -1,15 +1,47 @@
 class BMasher {
 
-    field Square square;
+    field int counter;
+    field int hs;
+    field Array instr;
 
     constructor BMasher new() {
-        let square = Square.new(0, 0, 10);
+        let instr = Array.new(5);
+        let instr[0] = "BUTTON MASHER!!!";
+        let instr[1] = "Button mash and get the highest score!";
+        let instr[2] = "Press 'space' to button mash, 'n' to start over, 'q' to quit";
+        let instr[3] = "Current score: "
+        let instr[4] = "High score: "
+        do clear();
+        
         return this;
     }
 
     method void dispose() {
-        do square.dispose();
         do Memory.deAlloc(this);
+        return;
+    }
+    
+    method void upScore(int current, int high) {
+        do clear();
+        do Output.moveCursor(10, 30);
+        do Output.printString(instr[3]);
+        do Output.printInt(current);
+        do Output.moveCursor(12, 30);
+        do Output.printString(instr[4]);
+        do Output.printInt(high);
+        
+        return;
+    }
+    
+    constructor BMasher clear() {
+        do Screen.clearScreen();
+        do Output.moveCursor(1, 1);
+        do Output.printString(instr[0]);
+        do Output.moveCursor(3, 1);
+        do Output.printString(instr[1]);
+        do Output.moveCursor(5, 1);
+        do Output.printString(instr[2]);
+        
         return;
     }
     
@@ -17,9 +49,10 @@ class BMasher {
         var char key;
         var boolean exit;
         let exit = false;
+        let counter = 0;
+        let hs = 0;
 
         while (~exit) {
-        
             while (key = 0) {
                 let key = Keyboard.keyPressed();
             }
@@ -30,22 +63,21 @@ class BMasher {
             }
             // 'n' key
             if (key = 78) {
-                do square.reset();
+                let counter = 0;
             }
             // 'space' key
             if (key = 32) {
-                do square.sizeUp();
+                let counter = counter + 1;
+                if (hs < counter) {
+                    hs = counter;
+                }
+                do upScore(counter, hs);
             }
 
             if (~(key = 0)) {
                 let key = 0;
             }
-            
-            if (square.isFinished()) {
-                do square.congrats();
-            }
         }
-            
         return;
     }
 }

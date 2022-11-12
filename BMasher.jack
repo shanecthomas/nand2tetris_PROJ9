@@ -74,7 +74,7 @@ class BMasher {
                 do upScore(counter, hs);
             }
 
-            if (~(key = 0)) {
+            while (~(key = 0)) {
                 let key = 0;
             }
         }

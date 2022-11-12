@@ -9,8 +9,8 @@ class BMasher {
         let instr[0] = "BUTTON MASHER!!!";
         let instr[1] = "Button mash and get the highest score!";
         let instr[2] = "Press 'space' to button mash, 'n' to start over, 'q' to quit";
-        let instr[3] = "Current score: "
-        let instr[4] = "High score: "
+        let instr[3] = "Current score: ";
+        let instr[4] = "High score: ";
         do clear();
         
         return this;
@@ -33,7 +33,7 @@ class BMasher {
         return;
     }
     
-    constructor BMasher clear() {
+    method void clear() {
         do Screen.clearScreen();
         do Output.moveCursor(1, 1);
         do Output.printString(instr[0]);

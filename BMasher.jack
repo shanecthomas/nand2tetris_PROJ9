@@ -75,7 +75,7 @@ class BMasher {
             }
 
             while (~(key = 0)) {
-                let key = 0;
+                let key = Keyboard.keyPressed();
             }
         }
         return;

@@ -69,7 +69,7 @@ class BMasher {
             if (key = 32) {
                 let counter = counter + 1;
                 if (hs < counter) {
-                    hs = counter;
+                    let hs = counter;
                 }
                 do upScore(counter, hs);
             }

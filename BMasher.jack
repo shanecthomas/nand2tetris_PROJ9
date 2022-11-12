@@ -64,6 +64,7 @@ class BMasher {
             // 'n' key
             if (key = 78) {
                 let counter = 0;
+                do upScore(counter, hs);
             }
             // 'space' key
             if (key = 32) {
